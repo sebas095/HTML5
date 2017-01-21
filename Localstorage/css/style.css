@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.split {
+  width: 50%;
+  float: left;
+}
+
+label, input {
+  display: block;
+  margin: 10px;
+}
+
+ol li {
+  margin-bottom: 5px;
+}
+
+#todo {
+  width: 50%;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#date {
+  width: 50%;
+  padding: 10px;
+  background-color: #1690b6;
+  color: white;
+  border-radius: 5px;
+}
+
+#date:hover {
+  background-color: #117290;
+  border: 1px solid #183ba4;
+}
