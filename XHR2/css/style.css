@@ -1,0 +1,31 @@
+body {
+  font-family: Arial;
+  background-color: #2F3440;
+  color: #EEE;
+  text-align: center;
+}
+
+#box {
+  background-color: #EA6045;
+  width: 60%;
+  margin: 0 auto;
+  height: 300px;
+  border: 3px solid #FFF;
+}
+
+.progressBar {
+  background-color: #3F5666;
+  width: 60%;
+  margin: 0 auto;;
+  position: relative;
+  height: 30px;
+}
+
+#progreso {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 30px;
+  background-color: #F8CA40;
+}
