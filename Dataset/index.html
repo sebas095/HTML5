@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dataset HTML5</title>
+  </head>
+  <body>
+    <div id="elemento" data-a="ejemplo"></div>
+    <div data-a="ejemplo"></div>
+    <script>
+      window.addEventListener('load', init, false);
+      function init() {
+        const data_a = document.querySelectorAll('[data-a]');
+        const element = document.getElementById('elemento');
+        // element.getAttribute('data-a');
+        // $('#elemento').data('a', 'new value');
+        element.dataset.a = 'Nuevo ejemplo';
+      }
+    </script>
+  </body>
+</html>
