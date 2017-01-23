@@ -1,0 +1,16 @@
+#container {
+  width: 200px;
+  height: 30px;
+  float: left;
+  position: relative;
+  background-color: #EEE;
+}
+
+#porcentaje {
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgb(200, 50, 50);
+}

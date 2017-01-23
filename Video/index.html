@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Video API</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <video width="600" id="video">
@@ -12,9 +13,11 @@
     <button id="play">></button>
     <button id="pause">||</button>
     <button id="stop">stop</button>
+    <div id="container">
+      <div id="porcentaje"></div>
+    </div>
     <span id="time"></span>
-    <progress id="progress"></progress>
-    <input type="range" min="0" max="100" id="volumen">
+    <input type="range" min="0" max="1" step="0.1" value="1" id="volumen">
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,9 +1,8 @@
 window.addEventListener('load', init , false);
-let video, volumen, progress;
+let video, volumen;
 
 function init() {
   video = document.getElementById('video');
-  progress = document.getElementById('progress');
   volumen = document.getElementById('volumen');
 
   // Listeners
@@ -13,8 +12,6 @@ function init() {
 
   volumen.addEventListener('change', handleVolumen);
   video.addEventListener('timeupdate', updateTime);
-  // video.addEventListener('loadedmetadata', assignDuration);
-  progress.max = video.duration;
 }
 
 function onPlay() {
@@ -31,14 +28,11 @@ function onStop() {
 }
 
 function handleVolumen(ev) {
-  video.volume = ev.target.value / 100;
+  video.volume = volumen.value;
 }
 
 function updateTime() {
   document.getElementById('time').innerHTML = video.currentTime;
-  progress.value = video.currentTime;
-}
-
-function assignDuration() {
-  progress.max = video.duration;
+  const value = (video.currentTime * 100) / video.duration;
+  document.querySelector('#porcentaje').style.width = value + '%';
 }
