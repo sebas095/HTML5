@@ -27,15 +27,19 @@ function init() {
         console.log(value);
         if (value === 'reproducir') {
           onPlay();
-        } else if (value === 'pausar') {
+        }
+        if (value === 'pausar') {
           onPause();
-        } else if (value === 'silenciar') {
+        }
+        if (value === 'silenciar') {
           volumen.value = 0;
           handleVolumen();
-        } else if (value === 'escuchar') {
+        }
+        if (value === 'escuchar') {
           volumen.value = 1;
           handleVolumen();
-        } else if (value === 'detener') {
+        }
+        if (value === 'detener') {
           onStop();
         }
       }
