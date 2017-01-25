@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>History API</title>
+  </head>
+  <body>
+    <h1>Hola Mundo</h1>
+    <script>
+      // window.history.back();
+      // window.history.forward();
+      // window.history.go(2);
+      window.history.pushState({curso: 'HTML5 Avanzado'}, '', '/cambioHistoria');
+      window.history.pushState({curso: 'HTML5 Avanzado'}, '', '/cambioHistoria');
+      window.history.back();
+      // window.history.replaceState(null, '', '/cambioHistoria');
+      console.log(window.history.length);
+      window.onpopstate = (ev) {
+        alert(ev.state.curso);
+      }
+    </script>
+  </body>
+</html>
