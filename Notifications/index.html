@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notifications API</title>
+  </head>
+  <body>
+    <div id="aviso"></div>
+    <p>¿Quieres activar las notificaciones?</p>
+    <button id="btn">Activar notificaciones</button>
+    <script>
+      if (!window.Notification) {
+        alert('Tu navegador no soporta las funcionalidades de esta página');
+      } else {
+        window.addEventListener('load', init);
+      }
+
+      function init() {
+        document.getElementById('btn').addEventListener('click', () => {
+          if (window.Notification.permission === 'granted') {
+            createNotification();
+          } else {
+            window.Notification.requestPermission();
+          }
+        }, false);
+      }
+
+      function createNotification() {
+        const notification = new window.Notification('Uso de Notification API', {
+          body: '¡Felicidades! ya has configurado las notificaciones :)'}
+        );
+
+        notification.addEventListener('show', () => {
+          document.getElementById('aviso').innerHTML = 'Estamos mostrando la notificación';
+        }, false);
+
+        notification.addEventListener('close', () => {
+          document.getElementById('aviso').innerHTML = 'Se ha cerrado la notificación';
+        }, false);
+      }
+    </script>
+  </body>
+</html>
