@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notifications API</title>
+  </head>
+  <body>
+    <button id="btn">Activar notificaciones</button>
+    <script>
+      let notification, prefix = getHidden();
+
+      if (prefix) {
+        var hidden = prefix[0];
+        var visibilitychange = prefix[1];
+      } else {
+        alert('Tu navegador no soporta funcionalidades de esta página :(');
+      }
+
+      if (!window.Notification) {
+        alert('Tu navegador no soporta las funcionalidades de esta página');
+      } else {
+        window.addEventListener('load', init);
+      }
+
+      function init() {
+        document.getElementById('btn').addEventListener('click', () => {
+          if (window.Notification.permission !== 'granted') {
+            window.Notification.requestPermission();
+          }
+        }, false);
+
+        document.addEventListener(visibilitychange, handleVisibility);
+      }
+
+      function createNotification() {
+        notification = new window.Notification('Come back!', {
+          body: 'Te extrañamos en la página :('}
+        );
+      }
+
+      function handleVisibility() {
+        // hidden, visible, prerender, unloaded
+        if (document[hidden]) {
+          createNotification();
+          return;
+        }
+        notification.close();
+      }
+
+      function getHidden() {
+        const prefixes = ['webkit', 'moz', 'ms'];
+        if ('hidden' in document) return ['hidden', 'visibilitychange'];
+        for (let i in prefixes) {
+          const prefix = prefixes[i];
+          const option = prefix + 'Hidden';
+          const optionVs = prefix + 'visibilitychange';
+          if (option in document) return [option, optionVs];
+        }
+        return null;
+      }
+    </script>
+  </body>
+</html>
