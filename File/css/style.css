@@ -1,0 +1,9 @@
+body {
+  font-family: Arial;
+}
+
+.half {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+}
