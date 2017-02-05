@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Web Workers</title>
+  </head>
+  <body>
+    <h2>Busca los números primos de 0 a: </h2>
+    <input type="number" id="number" placeholder="2">
+    <button id="search">Buscar</button>
+    <script>
+      window.addEventListener('load', init, false);
+
+      function init() {
+        document.querySelector('#search'),addEventListener('click', (ev) => {
+          const number = document.querySelector('#number').value;
+          const worker = new Worker('js/worker.js');
+          worker.postMessage(number);
+          worker.addEventListener('message', (ev) => {
+            console.log(ev.data);
+          }, false);
+        });
+      }
+    </script>
+  </body>
+</html>
