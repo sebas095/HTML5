@@ -1,5 +1,5 @@
 // Un worker no tiene acceso al DOM
-// Solo se comunica a travea de mensajes
+// Solo se comunica a traves de mensajes
 
 self.addEventListener('message', (ev) => {
   self.postMessage(searchPrimes(parseInt(ev.data)));
